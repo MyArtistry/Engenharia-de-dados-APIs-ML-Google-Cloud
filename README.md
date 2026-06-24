@@ -2,20 +2,34 @@
   
 # Dataflow job  
 
-## Criei e executei um job no Dataflow
-1. Comecei criando o dataset com a tabela no BigQuery.
-2. Criei o bucket no Cloud Storage.
-3. Acessei o Dataflow e submeti o Job por linha de comando. Disparei a pipeline diretamente pelo Cloud Shell usando a CLI da gcloud. Invoquei o template atualizado de conversão de texto para BigQuery, passando todos os parâmetros obrigatórios em um comando de linha única:
-     
-    gcloud dataflow jobs run gsp323-dataflow-job \
-  --gcs-location gs://dataflow-templates-us-east1/latest/GCS_Text_to_BigQuery \
-  --region us-east1 \
-  --worker-machine-type e2-standard-2 \
-  --staging-location gs://qwiklabs-gcp-03-f1c54c1a8105-marking/temp \
-  --parameters \
-    javascriptTextTransformGcsPath=gs://spls/gsp323/lab.js, \
-    JSONPath=gs://spls/gsp323/lab.schema, \
-    javascriptTextTransformFunctionName=transform, \
-    outputTable=qwiklabs-gcp-03-f1c54c1a8105:lab_778.customers_460, \
-    inputFilePattern=gs://spls/gsp323/lab.csv, \
-    bigQueryLoadingTemporaryDirectory=gs://qwiklabs-gcp-03-f1c54c1a8105-marking/bigquery_temp
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório do Laboratório Dataflow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        .step {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        pre {
+           
