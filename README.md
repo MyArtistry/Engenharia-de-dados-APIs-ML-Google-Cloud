@@ -31,7 +31,12 @@ O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argument
 curl -s -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @request.json "[https://speech.googleapis.com/v1/speech:recognize](https://speech.googleapis.com/v1/speech:recognize)" > result.json  
 
 3. Fiz o upload: Enviei o arquivo para o bucket de destino forçando o formato correto com o comando gsutil -h "Content-Type: application/json" cp result.json gs://[CLOUD_SPEECH_LOCATION].  
+  
+  <img width="1503" height="680" alt="task3final" src="https://github.com/user-attachments/assets/14262190-9cfa-4ad7-8d00-c6510a8378a3" />
 
+  
+# API Cloud Natural Language  
+## Estruturei o JSON: Criei o arquivo nl_request.json contendo o texto sobre Odin dentro da estrutura padrão da API:
 
 
 5. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
