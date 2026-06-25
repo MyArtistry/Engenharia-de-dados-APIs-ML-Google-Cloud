@@ -25,9 +25,12 @@ gsutil cp gs://spls/gsp323/data.txt .
 hdfs dfs -put data.txt /data.txt
 
 2. Enviei o Job: No console do Dataproc, preenchi os campos com a classe org.apache.spark.examples.SparkPageRank.  
-O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.
+O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.  
+
   
-  
+3. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
+
+
  #  API Cloud Speech-to-Text  
  ## Criei a requisição v1:  
  1. No Cloud Shell, criei o arquivo request.json especificando a API moderna:
@@ -45,7 +48,10 @@ curl -s -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H 
 
   
 # API Cloud Natural Language  
-## Estruturei o JSON: Criei o arquivo nl_request.json contendo o texto sobre Odin dentro da estrutura padrão da API:
+## Estruturei o JSON: Criei o arquivo nl_request.json contendo o texto sobre Odin dentro da estrutura padrão da API:  
+  
+```gcloud dataflow jobs run gsp323-dataflow-job --gcs-location gs://dataflow-templates-us-east1/latest/GCS_Text_to_BigQuery --region us-east1 --worker-machine-type e2-standard-2 --staging-location gs://qwiklabs-gcp-03-f1c54c1a8105-marking/temp --parameters javascriptTextTransformGcsPath=gs://spls/gsp323/lab.js,JSONPath=gs://spls/gsp323/lab.schema,javascriptTextTransformFunctionName=transform,outputTable=qwiklabs-gcp-03-f1c54c1a8105:lab_778.customers_460,inputFilePattern=gs://spls/gsp323/lab.csv,bigQueryLoadingTemporaryDirectory=gs://qwiklabs-gcp-03-f1c54c1a8105-marking/bigquery_temp```  
+  
+  <img width="1498" height="684" alt="task4" src="https://github.com/user-attachments/assets/b6690a0d-c83a-460b-aad5-3712b7f00ebf" />
 
 
-5. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
