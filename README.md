@@ -11,12 +11,12 @@
 
 ## Preparei o ambiente HDFS: 
 1. Acessei o nó master via SSH, criei a pasta de destino e depois copiei o arquivo do Cloud Storage para o sistema HDFS do cluster executando:  
-```hdfs dfs -mkdir -p /data
+hdfs dfs -mkdir -p /data
 gsutil cp gs://spls/gsp323/data.txt .
-hdfs dfs -put data.txt /data.txt```
+hdfs dfs -put data.txt /data.txt
 
 2. Enviei o Job: No console do Dataproc, preenchi os campos com a classe org.apache.spark.examples.SparkPageRank.  
-  ```O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.```  
+O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.
   
   
   
