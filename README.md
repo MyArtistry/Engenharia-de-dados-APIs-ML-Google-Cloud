@@ -48,7 +48,8 @@ curl -s -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H 
 
   
 # API Cloud Natural Language  
-## Estruturei o JSON: Criei o arquivo nl_request.json contendo o texto sobre Odin dentro da estrutura padrão da API:  
+## Estruturei o JSON: 
+Criei o arquivo nl_request.json contendo o texto sobre Odin dentro da estrutura padrão da API:  
   
 ```gcloud dataflow jobs run gsp323-dataflow-job --gcs-location gs://dataflow-templates-us-east1/latest/GCS_Text_to_BigQuery --region us-east1 --worker-machine-type e2-standard-2 --staging-location gs://qwiklabs-gcp-03-f1c54c1a8105-marking/temp --parameters javascriptTextTransformGcsPath=gs://spls/gsp323/lab.js,JSONPath=gs://spls/gsp323/lab.schema,javascriptTextTransformFunctionName=transform,outputTable=qwiklabs-gcp-03-f1c54c1a8105:lab_778.customers_460,inputFilePattern=gs://spls/gsp323/lab.csv,bigQueryLoadingTemporaryDirectory=gs://qwiklabs-gcp-03-f1c54c1a8105-marking/bigquery_temp```  
   
