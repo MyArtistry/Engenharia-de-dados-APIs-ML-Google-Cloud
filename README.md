@@ -19,5 +19,19 @@ hdfs dfs -put data.txt /data.txt
 O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.
   
   
-  
-3. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
+ #  API Cloud Speech-to-Text  
+ ## Criei a requisição v1:  
+ 1. No Cloud Shell, criei o arquivo request.json especificando a API moderna:
+    {
+  "config": { "encoding": "FLAC", "languageCode": "en-US" },
+  "audio": { "uri": "gs://spls/gsp323/task3.flac" }
+}  
+
+2. Chamei a API via REST: Usei o comando curl para enviar a requisição autenticada, salvando o retorno diretamente:
+curl -s -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json" --data-binary @request.json "[https://speech.googleapis.com/v1/speech:recognize](https://speech.googleapis.com/v1/speech:recognize)" > result.json  
+
+3. Fiz o upload: Enviei o arquivo para o bucket de destino forçando o formato correto com o comando gsutil -h "Content-Type: application/json" cp result.json gs://[CLOUD_SPEECH_LOCATION].  
+
+
+
+5. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
