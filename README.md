@@ -26,10 +26,12 @@ hdfs dfs -put data.txt /data.txt
 
 2. Enviei o Job: No console do Dataproc, preenchi os campos com a classe org.apache.spark.examples.SparkPageRank.  
 O jar file:///usr/lib/spark/examples/jars/spark-examples.jar e passei o argumento correto como /data.txt.  
-
   
 3. Configurei a infraestrutura: Criei o cluster usando a série E2 (e2-standard-2 para master e para os 2 workers), desmarquei a opção de apenas IP interno e aguardei a execução finalizar.
 
+  <img width="1510" height="693" alt="task2" src="https://github.com/user-attachments/assets/2bce3743-b8d5-4b7b-ba6b-b8e8ee4be800" />  
+
+  
 
  #  API Cloud Speech-to-Text  
  ## Criei a requisição v1:  
